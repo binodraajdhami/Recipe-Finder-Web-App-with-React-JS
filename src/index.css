@@ -1,13 +1,231 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    font-family: 'Poppins', sans-serif;
+}
+
+.wrapper {
+    margin: 15px auto;
+    max-width: 1140px;
+}
+
+.wrapper h3 {
+    margin-bottom: 15px;
+}
+
+.card {
+    position: relative;
+    max-width: 270px;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all linear 0.3s;
+}
+
+.wrapper-popular .card {
+    max-width: 365px;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    transform: scale(1.1, 1.1);
+    transition: all linear 0.3s;
+}
+
+.card p {
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    text-align: center;
+    padding: 0 15px;
+    z-index: 2;
+    font-size: 18px;
+    color: #fff;
+}
+
+.card .overlayer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 1));
+    transition: all linear 0.3s;
+    opacity: 0.9;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card:hover img {
+    transform: scale(1.15, 1.15);
+}
+
+.card:hover .overlayer {
+    opacity: 1;
+}
+
+/* ========== Category ========== */
+.category-list {
+    margin-top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.category-list a {
+    text-decoration: none;
+}
+
+.category-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #333;
+    margin: 0 5px;
+    transition: all linear 0.3s;
+}
+
+.category-item:hover,
+.category-list a.active .category-item {
+    background: brown;
+}
+
+.category-item svg {
+    color: #fff;
+    font-size: 24px;
+}
+
+.category-item span {
+    display: block;
+    margin-top: 5px;
+    color: #fff;
+    font-size: 12px;
+}
+
+/* ========== Cuisine Result ========== */
+.cuisine-list {
+    text-align: center;
+}
+
+.cuisine-item {
+    display: inline-block;
+    width: 24%;
+}
+
+/* ========== Search Form ========== */
+.wrapper-search {
+    position: relative;
+    margin-top: 30px;
+}
+
+.wrapper-logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    text-decoration: none;
+    background: #c0392b;
+    padding: 10px;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.wrapper-logo h6 {
+    margin-left: 5px;
+    font-size: 14px;
+}
+
+.search-form {
+    text-align: center;
+}
+
+.form-group {
+    display: inline-block;
+    position: relative;
+}
+
+.search-form svg {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    color: #fff;
+    font-size: 16px;
+}
+
+.search-form .form-control {
+    display: inline-block;
+    padding: 0 50px;
+    width: 500px;
+    height: 40px;
+    background: #333;
+    color: #fff;
+    font-size: 16px;
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+}
+
+.search-form .form-control::placeholder {
+    color: #fff;
+}
+
+/* ========== Details Information ========== */
+.wrapper-details {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.recipe-thumbnail {
+    width: 40%;
+    padding-right: 50px;
+}
+
+.recipe-description {
+    width: 60%;
+}
+
+.recipe-description button {
+    padding: 8px 15px;
+    color: #333;
+    font-size: 16px;
+    margin-right: 5px;
+    border: #333 solid 1px;
+    cursor: pointer;
+}
+
+.recipe-description button.active {
+    background: #333;
+    color: #fff;
+}
+
+.custom-tab-panel .tab-heading {
+    margin-bottom: 15px;
+}
+
+.custom-tab-panel .tab-content {
+    display: none;
+}
+
+.custom-tab-panel .tab-content li {
+    margin-left: 15px;
+}
+
+.custom-tab-panel .tab-content.active {
+    display: block;
 }
