@@ -1,12 +1,19 @@
 import React, { useEffect, useState } from "react";
+import useMediaQuery from '@mui/material/useMediaQuery';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 
 // import components
 import Card from "./Card";
 
 const Popular = () => {
-
     const [popular, setPopular] = useState([]);
+    const matches = useMediaQuery('(max-width:767px)');
+
+    if (matches) {
+        console.log('True');
+    } else {
+        console.log('True');
+    }
 
     useEffect(() => {
         getPopular();
@@ -31,7 +38,7 @@ const Popular = () => {
         <div className="wrapper wrapper-popular">
             <h3>Popular Recipes</h3>
             <Splide options={{
-                perPage: 3,
+                perPage: matches ? 2 : 3,
                 arrows: false,
                 pagination: false,
                 drag: "free",

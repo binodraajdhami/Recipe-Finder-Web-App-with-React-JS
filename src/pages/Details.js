@@ -16,7 +16,7 @@ const Details = () => {
 
     useEffect(() => {
         getDetails(params.id);
-    }, [params.id]);
+    });
 
     return (
         <motion.div className="wrapper wrapper-details"

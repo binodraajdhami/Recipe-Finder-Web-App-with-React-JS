@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import useMediaQuery from '@mui/material/useMediaQuery';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 
 // import components
@@ -7,6 +8,7 @@ import Card from "./Card";
 const Veggie = () => {
 
     const [veggie, setVeggie] = useState([]);
+    const matches = useMediaQuery('(max-width:767px)');
 
     useEffect(() => {
         getVeggie();
@@ -31,7 +33,7 @@ const Veggie = () => {
         <div className="wrapper wrapper-veggie">
             <h3>Veggie Recipes</h3>
             <Splide options={{
-                perPage: 4,
+                perPage: matches ? 3 : 4,
                 arrows: false,
                 pagination: false,
                 drag: "free",

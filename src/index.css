@@ -229,3 +229,44 @@ body {
 .custom-tab-panel .tab-content.active {
     display: block;
 }
+
+@media (max-width: 767px) {
+    .wrapper {
+        width: calc(100% - 30px);
+        padding: 0 15px;
+        margin: 30px auto;
+    }
+
+    .wrapper-logo {
+        position: relative;
+        top: inherit;
+        left: inherit;
+        margin: 0 auto 30px;
+        width: 110px;
+    }
+
+    .search-form .form-control {
+        width: calc(100% - 50px);
+        padding-right: 0;
+    }
+
+    .card p {
+        bottom: 10px;
+        line-height: 12px;
+        font-size: 10px;
+        padding: 0 5px;
+    }
+
+    .cuisine-item {
+        width: 30%;
+        margin: 3px;
+    }
+
+    .wrapper-veggie .card {
+        margin: 0 3px;
+    }
+
+    .wrapper-popular .card {
+        margin: 0 5px;
+    }
+}
