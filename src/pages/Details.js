@@ -2,21 +2,24 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { motion } from "framer-motion";
 
+// import APIs Key
+import apis from '../Apis';
+
 const Details = () => {
     const params = useParams();
     const [details, setDetails] = useState({});
     const [button, setButton] = useState('Instructions');
 
-    const getDetails = async (id) => {
-        const result = await fetch(`https://api.spoonacular.com/recipes/${params.id}/information/?apiKey=059e0b6f22f64350a4d1565e68af1bf8`);
-        const detailsData = await result.json();
-        console.log(detailsData);
-        setDetails(detailsData);
-    }
-
     useEffect(() => {
         getDetails(params.id);
     });
+
+    const getDetails = async (id) => {
+        const result = await fetch(`https://api.spoonacular.com/recipes/${params.id}/information/?apiKey=${apis.myAPIs.key}`);
+        const detailsData = await result.json();
+
+        setDetails(detailsData);
+    }
 
     return (
         <motion.div className="wrapper wrapper-details"

@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { motion } from "framer-motion";
 
+// import APIs Key
+import apis from '../Apis';
+
 // import components
 import Card from "./../components/Card";
 
@@ -10,7 +13,7 @@ const SearchResult = () => {
     const [search, setSearch] = useState([]);
 
     const getSearch = async (query) => {
-        const result = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=059e0b6f22f64350a4d1565e68af1bf8&query=${query}&number=8`);
+        const result = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${apis.myAPIs.key}&query=${query}&number=8`);
         const data = await result.json();
         setSearch(data.results);
     }

@@ -2,11 +2,13 @@ import React, { useEffect, useState } from "react";
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 
+// import APIs Key
+import apis from '../Apis';
+
 // import components
 import Card from "./Card";
 
 const Veggie = () => {
-
     const [veggie, setVeggie] = useState([]);
     const matches = useMediaQuery('(max-width:767px)');
 
@@ -15,13 +17,12 @@ const Veggie = () => {
     }, []);
 
     const getVeggie = async () => {
-
         const checkItem = localStorage.getItem('veggie');
 
         if (checkItem) {
             setVeggie(JSON.parse(checkItem));
         } else {
-            const result = await fetch('https://api.spoonacular.com/recipes/random?apiKey=059e0b6f22f64350a4d1565e68af1bf8&tags=vegetarian&number=9');
+            const result = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${apis.myAPIs.key}&tags=vegetarian&number=9`);
             const data = await result.json();
 
             localStorage.setItem('veggie', JSON.stringify(data.recipes));
